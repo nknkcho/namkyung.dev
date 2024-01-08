@@ -37,7 +37,7 @@ const Home = async () => {
       {posts.map(post => (
         <Link key={post.slug} href={`/${post.slug}`} className={'block py-3'}>
           <article>
-            <h2>{post.title}</h2>
+            <h2 className={'text-lg'}>{post.title}</h2>
             <p>{post.date}</p>
             <p>{post.spoiler}</p>
           </article>
