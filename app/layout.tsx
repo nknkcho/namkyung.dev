@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ko" className={notoSansKor.variable}>
-      <body className={'max-w-2xl mx-auto px-5 py-12'}>
+      <body className={'max-w-2xl mx-auto px-5 py-12 bg-[--bg] text-[--text]'}>
         <header className={'flex place-content-between mb-20'}>
           <h1>
             <Link href="/">@nkakmk</Link>
