@@ -1,19 +1,35 @@
 import React from 'react';
+import path from 'path';
 import { readdir, readFile } from 'fs/promises';
-import Post from '../../_components/Post';
 import { bundleMDX } from 'mdx-bundler';
+import rehypePrettyCode from 'rehype-pretty-code';
+import remarkGfm from 'remark-gfm';
+import remarkMdxImages from 'remark-mdx-images';
+
+import Post from '../../_components/Post';
+import '../../_components/markdown.css';
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
+  const POSTS_PATH = path.join(process.cwd(), `/public/${decodeURIComponent(slug)}`);
 
-  const fileName = `./public/${slug}/index.md`;
+  const fileName = `${POSTS_PATH}/index.md`;
   const file = await readFile(fileName, 'utf8');
 
   const { code, frontmatter } = await bundleMDX({
     source: file,
-    mdxOptions(options, frontmatter) {
-      options.remarkPlugins = [...(options.remarkPlugins ?? [])];
-      options.rehypePlugins = [...(options.rehypePlugins ?? [])];
+    cwd: POSTS_PATH,
+    mdxOptions(options) {
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm, remarkMdxImages];
+      options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypePrettyCode];
+
+      return options;
+    },
+    esbuildOptions: options => {
+      options.loader = {
+        ...options.loader,
+        '.jpg': 'dataurl',
+      };
 
       return options;
     },
@@ -21,10 +37,9 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <article>
-      <h1>{frontmatter.title}</h1>
-      <div>
-        <Post code={code} />
-      </div>
+      <h1 className={'text-lg'}>{frontmatter.title}</h1>
+      <p>{frontmatter.date}</p>
+      <Post code={code} />
     </article>
   );
 };
