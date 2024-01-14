@@ -33,17 +33,19 @@ const Home = async () => {
   const posts = await getPosts();
 
   return (
-    <div>
+    <>
       {posts.map(post => (
-        <Link key={post.slug} href={`/${post.slug}`} className={'block py-3'}>
+        <Link key={post.slug} href={`/${post.slug}`} className={'block pt-3 pb-5 relative group'}>
           <article>
-            <h2 className={'text-lg'}>{post.title}</h2>
-            <p>{post.date}</p>
-            <p>{post.spoiler}</p>
+            <h2 className="text-[28px] font-black">{post.title}</h2>
+            <p className="mt-1 dark:text-[#94a1b2]">
+              {new Date(post.date).toLocaleDateString('ko-KR')}
+            </p>
+            <p className="mt-1 dark:text-[#94a1b2]">{post.spoiler}</p>
           </article>
         </Link>
       ))}
-    </div>
+    </>
   );
 };
 

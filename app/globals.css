@@ -11,6 +11,9 @@
     :root {
         --bg: #16161a;
         --text: #fffffe;
+        --link: #7f5af0;
+        --inlineCode-bg: #2b2c34;
+        --inlineCode-text: #fffffe;
     }
 }
 

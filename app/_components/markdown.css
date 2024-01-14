@@ -1,0 +1,200 @@
+.markdown {
+    line-height: 28px;
+}
+
+.markdown p {
+    @apply pb-8;
+}
+
+.markdown a {
+    @apply border-b-[1px] border-[--link] text-[--link];
+}
+
+.markdown hr {
+    @apply pt-8 opacity-60 dark:opacity-10;
+}
+
+.markdown h2 {
+    @apply mt-2 pb-8 text-3xl font-bold;
+}
+
+.markdown h3 {
+    @apply mt-2 pb-8 text-2xl font-bold;
+}
+
+.markdown h4 {
+    @apply mt-2 pb-8 text-xl font-bold;
+}
+
+.markdown :not(pre) > code {
+    border-radius: 10px;
+    background: var(--inlineCode-bg);
+    color: var(--inlineCode-text);
+    padding: 0.15em 0.2em 0.05em;
+    white-space: normal;
+}
+
+.markdown pre {
+    @apply -mx-4 mb-8 overflow-y-auto text-sm;
+    border-radius: 12px;
+}
+
+.markdown pre code {
+    width: auto;
+}
+
+.markdown blockquote {
+    @apply relative -left-2 -ml-4 mb-8 pl-4;
+    font-style: italic;
+    border-left: 3px solid;
+    border-left-color: inherit;
+    opacity: 0.8;
+}
+
+.markdown blockquote p {
+    margin: 0;
+    padding: 0;
+}
+
+.markdown ul {
+    margin-bottom: 1.75rem;
+    list-style: disc outside none;
+}
+
+.markdown img {
+    @apply mb-8;
+    max-width: 100%;
+}
+
+.markdown pre .highlight-line {
+    margin-left: -16px;
+    padding-left: 12px;
+    border-left: 4px solid #2cb67d;
+    background-color: rgba(55, 65, 81, 0.5);
+    display: block;
+    padding-right: 1em;
+}
+
+
+/**
+ * Dracula Theme originally by Zeno Rocha [@zenorocha]
+ * https://draculatheme.com/
+ *
+ * Ported for PrismJS by Albert Vallverdu [@byverdu]
+ */
+
+.markdown code[class*="language-"],
+.markdown pre[class*="language-"] {
+    color: #f8f8f2;
+    background: none;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Code blocks */
+.markdown pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+    border-radius: 0.3em;
+}
+
+.markdown :not(pre) > code[class*="language-"],
+.markdown pre[class*="language-"] {
+    background: #282a36;
+}
+
+/* Inline code */
+.markdown :not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6272a4;
+}
+
+.token.punctuation {
+    color: #f8f8f2;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #ff79c6;
+}
+
+.token.boolean,
+.token.number {
+    color: #bd93f9;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #50fa7b;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+    color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+    color: #f1fa8c;
+}
+
+.token.keyword {
+    color: #8be9fd;
+}
+
+.token.regex,
+.token.important {
+    color: #ffb86c;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}

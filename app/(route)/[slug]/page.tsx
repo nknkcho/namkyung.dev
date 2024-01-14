@@ -2,9 +2,9 @@ import React from 'react';
 import path from 'path';
 import { readdir, readFile } from 'fs/promises';
 import { bundleMDX } from 'mdx-bundler';
-import rehypePrettyCode from 'rehype-pretty-code';
 import remarkGfm from 'remark-gfm';
 import remarkMdxImages from 'remark-mdx-images';
+import rehypePrism from 'rehype-prism-plus';
 
 import Post from '../../_components/Post';
 import '../../_components/markdown.css';
@@ -21,7 +21,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
     cwd: POSTS_PATH,
     mdxOptions(options) {
       options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm, remarkMdxImages];
-      options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypePrettyCode];
+      options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypePrism];
 
       return options;
     },
@@ -37,8 +37,10 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <article>
-      <h1 className={'text-lg'}>{frontmatter.title}</h1>
-      <p>{frontmatter.date}</p>
+      <h1 className="text-[40px] font-black">{frontmatter.title}</h1>
+      <p className="mt-1 dark:text-[#94a1b2]">
+        {new Date(frontmatter.date).toLocaleDateString('ko-KR')}
+      </p>
       <Post code={code} />
     </article>
   );
