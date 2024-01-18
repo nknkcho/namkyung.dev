@@ -21,3 +21,27 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+@layer components {
+    .underline-hover {
+        position: relative;
+        display: inline-block;
+    }
+
+    .underline-hover::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 1px;
+        background: #7f5af0;
+        transition: width 0.2s ease-in-out;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+    }
+
+    .article-hover-animation:hover .underline-hover::after,
+    .article-hover-animation:focus-within .underline-hover::after {
+        width: 100%;
+    }
+}
