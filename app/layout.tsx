@@ -33,9 +33,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <li className="mr-3">
               <Link href="/about">about</Link>
             </li>
-            <li>
-              <Link href="/tags">tags</Link>
-            </li>
           </ul>
         </header>
         <main>{children}</main>
