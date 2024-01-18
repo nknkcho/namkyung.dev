@@ -6,8 +6,8 @@ import remarkGfm from 'remark-gfm';
 import remarkMdxImages from 'remark-mdx-images';
 import rehypePrism from 'rehype-prism-plus';
 
-import Post from '../../_components/Post';
-import '../../_components/markdown.css';
+import Post from '../../_components/Post/Post';
+import '../../_components/Post/markdown.css';
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
