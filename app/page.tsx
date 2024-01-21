@@ -35,7 +35,11 @@ const Home = async () => {
   return (
     <>
       {posts.map(post => (
-        <Link key={post.slug} href={`/${post.slug}`} className={'block pt-3 pb-5 relative group'}>
+        <Link
+          key={post.slug}
+          href={'/' + post.slug + '/'}
+          className={'block pt-3 pb-5 relative group'}
+        >
           <article className="article-hover-animation">
             <h2 className="text-[28px] font-black underline-hover">{post.title}</h2>
             <p className="mt-1 dark:text-[#94a1b2]">
