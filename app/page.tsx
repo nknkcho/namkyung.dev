@@ -1,6 +1,7 @@
 import { readdir, readFile } from 'fs/promises';
 import matter from 'gray-matter';
-import Link from 'next/link';
+// import Link from 'next/link';
+import Link from './Link';
 
 type PostData = {
   slug: string;
@@ -31,7 +32,9 @@ const getPosts = async (): Promise<PostData[]> => {
 };
 const Home = async () => {
   const posts = await getPosts();
+  console.log(posts);
 
+  // @ts-ignore
   return (
     <>
       {posts.map(post => (
