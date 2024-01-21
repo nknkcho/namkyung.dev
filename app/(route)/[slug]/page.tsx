@@ -18,7 +18,6 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
 
   const { code, frontmatter } = await bundleMDX({
     source: file,
-    cwd: POSTS_PATH,
     mdxOptions(options) {
       options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm, remarkMdxImages];
       options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypePrism];
