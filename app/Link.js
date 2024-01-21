@@ -18,7 +18,7 @@ function isModifiedEvent(event) {
 }
 
 // eslint-disable-next-line react/function-component-definition
-export default function Link({ className, href, target, ...rest }) {
+export default function Link({ className, children, style, href, target, ...rest }) {
   const router = useRouter();
   const [isNavigating, trackNavigation] = useTransition();
   if (!target && !href.startsWith('/')) {
