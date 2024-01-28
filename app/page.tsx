@@ -1,6 +1,5 @@
 import { readdir, readFile } from 'fs/promises';
 import matter from 'gray-matter';
-// import Link from 'next/link';
 import Link from './Link';
 
 type PostData = {
@@ -32,17 +31,14 @@ const getPosts = async (): Promise<PostData[]> => {
 };
 const Home = async () => {
   const posts = await getPosts();
-  console.log(posts);
 
   return (
     <>
       {posts.map(post => (
-        // @ts-ignore
         <Link
           key={post.slug}
           href={'/' + post.slug + '/'}
           className={'block pt-3 pb-5 relative group'}
-          // target={undefined}
         >
           <article className="article-hover-animation">
             <h2 className="text-[28px] font-black underline-hover">{post.title}</h2>
