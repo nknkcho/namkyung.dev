@@ -29,8 +29,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <h1>
             <Link href="/">@nkakmk</Link>
           </h1>
-          <ul className="flex">
-            <li className="mr-3">
+          <ul>
+            <li>
               <Link href={'/about'}>about</Link>
             </li>
           </ul>

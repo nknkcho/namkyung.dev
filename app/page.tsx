@@ -33,7 +33,7 @@ const Home = async () => {
   const posts = await getPosts();
 
   return (
-    <>
+    <div>
       {posts.map(post => (
         <Link
           key={post.slug}
@@ -49,7 +49,7 @@ const Home = async () => {
           </article>
         </Link>
       ))}
-    </>
+    </div>
   );
 };
 
