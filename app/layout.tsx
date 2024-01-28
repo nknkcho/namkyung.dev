@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
-import Link from 'next/link';
+import Link from './Link';
 
 const notoSansKor = Noto_Sans_KR({
   weight: ['400'],
@@ -25,13 +25,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ko" className={notoSansKor.variable}>
       <body className="max-w-2xl mx-auto px-5 py-12 bg-[--bg] text-[--text]">
-        <header className="flex place-content-between mb-20">
+        <header className="flex place-content-between mb-10">
           <h1>
             <Link href="/">@nkakmk</Link>
           </h1>
           <ul className="flex">
             <li className="mr-3">
-              <Link href="/about">about</Link>
+              <Link href={'/about'}>about</Link>
             </li>
           </ul>
         </header>
